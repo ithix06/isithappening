@@ -4,6 +4,10 @@ files:
   - source: /application.py
     destination: /home/ec2-user/eb_flask_app
 hooks:
+  BeforeInstall:
+    - location: scripts/cleanup
+      timeout: 180
+      runas: root
   AfterInstall:
     - location: scripts/start_server
       timeout: 180
