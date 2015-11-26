@@ -1,0 +1,6 @@
+#!/bin/bash
+cd /home/ec2-user/eb_flask_app
+touch testerwin.txt
+. /tmp/eb_flask_app/bin/activate
+python application.py
+
