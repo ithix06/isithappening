@@ -3,6 +3,8 @@ os: linux
 files:
   - source: /application.py
     destination: /home/ec2-user/eb_flask_app
+  - source: templates
+    destination: /home/ec2-user/eb_flask_app
 hooks:
   BeforeInstall:
     - location: scripts/cleanup
