@@ -6,8 +6,8 @@ from urllib2 import Request, urlopen, URLError
 
 #WIN
 
-os.environ["AWS_ACCESS_KEY_ID"] = "AKIAJBTYPO7MGQ65A64A"
-os.environ["AWS_SECRET_ACCESS_KEY"] = "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"
+os.environ["AWS_ACCESS_KEY_ID"] = "face"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "palm"
 
 UPLOAD_FOLDER = '/home/ec2-user/eb_flask_app/images'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
