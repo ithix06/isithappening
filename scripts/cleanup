@@ -1,4 +1,4 @@
 #!/bin/bash
-pkill -f application.py
+pkill -f application.py &>/dev/null &
 cd /home/ec2-user/eb_flask_app
 rm application.py
