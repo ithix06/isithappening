@@ -16,6 +16,8 @@ app.config['DYNAMO_TABLES'] = [
     Table('Pictures', schema=[HashKey('PictureId')]),
 ]
 
+dynamo = Dynamo(app)
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -39,6 +41,8 @@ def create_location():
         'LocationName': 'unicorn',
         'Address': '123 cap hill',
     })
+	
+	return dynamo.Locations
 
 if __name__ == "__main__":
     app.debug = True
