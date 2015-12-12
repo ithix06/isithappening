@@ -37,7 +37,7 @@ def index():
 
 @app.route('/create_location')
 def create_location():
-    randomStr = ''.join(random.choice(string.lowercase) for i in range(5))
+    randomStr = ''.join(random.choice(string.lowercase) for i in range(7))
     dynamo.Locations.put_item(data={
         'LocationName': 'unicorn' + randomStr,
         'Address': '123 cap hill' + randomStr,
