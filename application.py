@@ -34,6 +34,16 @@ def index():
 	locationPictureData = getLocationPictureData()
     return render_template('index.html',locationPictureData=locationPictureData)
 
+	
+@app.route('/getPicturesForLocation', methods=['GET', 'POST'])
+def getPicturesForLocation():
+    locationPictureData = None;
+    if request.method == 'POST':
+	    location = request.form['location']
+	    locationPictureData = getLocationPictureDataFromLocation(location)
+		
+    return render_template('getPictureByLocation.html', locationPictureData=locationPictureData)
+
 def UploadFileToS3(data_files, now):
     s3 = boto.connect_s3()
     bucket = s3.get_bucket(S3BUCKET)
@@ -66,10 +76,11 @@ def getLocationPictureData():
     allPictures = list(pictures)
 	return allPictures
 
-    #locationData = {
-	#	"LocationName": "the location name",
-	#	"PictureURL": "www.google.com",    
-	#}
+def getLocationPictureDataFromLocation(location):
+    #TODO: Query on location
+    pictures = dynamo.Pictures.scan()
+    allPictures = list(pictures)
+	return allPictures
 	
 if __name__ == "__main__":
     app.debug = True
